@@ -1,147 +1,139 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>PVOIL Digital System - Login</title>
-<!-- Tailwind CSS v3 CDN -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<!-- Google Fonts: Inter -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<style data-purpose="custom-config">
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .text-pvoil-red { color: #EC1D24; }
-    .text-pvoil-blue { color: #384285; }
-  </style>
-</head>
-<body class="bg-slate-900 text-white min-h-screen relative overflow-x-hidden">
-<!-- BEGIN: Background Image Container -->
-<div class="fixed inset-0 z-0">
-  <img
-    alt="PVOIL Offshore Platform at sunset"
-    class="w-full h-full object-cover"
-    src="assets/image 619.png"
-  />
-  <div
-    class="absolute inset-0"
-    style="background: linear-gradient(141deg, rgba(10,25,60,0) 0%, rgba(10,25,60,0.96) 100%);"
-  ></div>
-</div>
-<!-- END: Background Image Container -->
-<!-- BEGIN: Main Content Layout -->
-<main class="relative z-10 mx-auto max-w-[1280px] min-h-screen flex flex-col lg:flex-row">
-<!-- BEGIN: Left Information Section -->
-<section class="w-full lg:w-[55%] flex flex-col justify-between px-8 lg:pl-16 lg:pr-10 py-10 lg:py-16 text-white">
-  <!-- Logo card -->
-  <div class="inline-flex items-center rounded-2xl bg-white/95 shadow-lg px-5 py-3 mb-10">
-    <img src="assets/logo-icon-color.svg" alt="PETROVIETNAM PVOIL - Đường xa thêm gần" class="h-12 w-auto"/>
-  </div>
-
-  <!-- Heading -->
-  <div class="max-w-xl space-y-4">
-    <img src="assets/slogan.svg" alt="Năng lượng cho kỷ nguyên số" class="w-full max-w-[520px] h-auto mb-2"/>
-    <p class="text-[16px] lg:text-[18px] text-slate-100/90 leading-relaxed">
-      Hệ thống quản trị văn phòng điện tử thông minh, tối ưu hóa quy trình nghiệp vụ cho đội ngũ
-      nhân sự PVOIL trên toàn quốc.
-    </p>
-  </div>
-
-  <!-- Pills -->
-  <div class="mt-8 flex flex-wrap gap-4">
-    <button class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em]">
-      <img src="assets/Icon-1.svg" alt="" class="h-3 w-3"/>
-      Truy cập an toàn
-    </button>
-    <button class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em]">
-      <img src="assets/Icon-2.svg" alt="" class="h-3 w-3"/>
-      Hiệu suất cao
-    </button>
-  </div>
-
-  <!-- Copyright -->
-  <p class="mt-10 text-[11px] text-slate-200/80">
-    © 2026 Bản quyền thuộc PVOIL
-  </p>
-</section>
-<!-- END: Left Information Section -->
-<!-- BEGIN: Right Login Card Section -->
-<section class="w-full lg:w-[45%] flex items-center justify-center px-8 lg:px-0 py-10 lg:py-16" data-purpose="login-form-container">
-  <div class="w-full max-w-[460px] rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_25px_50px_-12px_rgba(0,0,0,0.45)] px-8 py-8 lg:px-10 lg:py-10">
-    <h2 class="text-2xl font-bold text-white mb-1">Đăng nhập</h2>
-    <p class="text-sm text-slate-200 mb-6">Nhập email và mật khẩu để đăng nhập!</p>
-    <form class="space-y-5">
-      <div>
-        <label class="block text-sm font-semibold text-slate-200 mb-1">Tên đăng nhập</label>
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg class="h-4 w-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-            </svg>
-          </span>
-          <input
-            type="text"
-            class="w-full bg-white/5 border border-white/30 rounded-xl py-3.5 pl-11 pr-4 text-sm text-white placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500 outline-none"
-            placeholder="phuongdt1@pvoil.com.vn"
+<!doctype html>
+<html lang="vi" ng-app="pvoilApp">
+  <head>
+    <meta charset="utf-8" />
+    <title>PVOIL Office - Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body ng-controller="LoginController as vm">
+    <div class="login-page">
+      <div class="login-hero">
+        <div class="hero-logo-card">
+          <img
+            src="assets/Container.svg"
+            alt="PVOIL logo"
+            class="hero-logo"
           />
         </div>
-      </div>
-      <div>
-        <label class="block text-sm font-semibold text-slate-200 mb-1">Mật khẩu</label>
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg class="h-4 w-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-            </svg>
-          </span>
-          <input
-            type="password"
-            class="w-full bg-white/5 border border-white/30 rounded-xl py-3.5 pl-11 pr-16 text-sm text-white placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500/60 focus:border-blue-500 outline-none"
-            placeholder="••••••••"
-          />
-          <button type="button" class="absolute inset-y-0 right-0 pr-4 text-xs font-medium text-slate-300 hover:text-white">
-            Hiện
+        <div class="hero-heading">
+          <h1>
+            Năng lượng cho
+            <span>Kỷ nguyên số</span>
+          </h1>
+        </div>
+        <p class="hero-description">
+          Hệ thống quản trị văn phòng điện tử thông minh, tối ưu hóa quy trình
+          nghiệp vụ cho đội ngũ nhân sự PVOIL trên toàn quốc.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="chip chip-primary">
+            <img
+              src="assets/Icon-5.svg"
+              alt=""
+              class="chip-icon"
+            />
+            <span>Truy cập an toàn</span>
+          </button>
+          <button type="button" class="chip chip-secondary">
+            <img
+              src="assets/Icon-4.svg"
+              alt=""
+              class="chip-icon"
+            />
+            <span>Hiệu suất cao</span>
           </button>
         </div>
       </div>
-      <div class="flex items-center justify-between text-xs text-slate-200">
-        <label class="flex items-center gap-2 cursor-pointer">
-          <input type="checkbox" class="rounded bg-white/10 border-white/40 text-blue-500 focus:ring-0 focus:ring-offset-0" />
-          <span>Ghi nhớ đăng nhập</span>
-        </label>
-        <a href="#" class="hover:text-white">Quên mật khẩu?</a>
-      </div>
-      <button
-        type="submit"
-        class="w-full rounded-xl bg-[#2e5bff] hover:bg-[#2348d4] text-white font-semibold text-sm py-3.5 shadow-[0_10px_20px_rgba(19,66,236,0.5)] transition"
-      >
-        Đăng nhập
-      </button>
-      <div class="relative flex items-center py-2 text-xs text-slate-300">
-        <div class="flex-1 border-t border-white/15"></div>
-        <span class="px-3 uppercase tracking-[0.16em]">Hoặc đăng nhập bằng</span>
-        <div class="flex-1 border-t border-white/15"></div>
-      </div>
-      <button
-        type="button"
-        class="w-full rounded-xl border border-white/25 bg-white/5 hover:bg-white/10 text-white text-sm font-medium py-3.5 flex items-center justify-center gap-2"
-      >
-        <img src="assets/Icon-5.svg" alt="" class="w-5 h-5"/>
-        Đăng nhập bằng mã QR
-      </button>
-      <p class="pt-4 text-center text-[11px] text-slate-300">© 2026 Bản quyền thuộc PVOIL</p>
-    </form>
-  </div>
-</section>
-<!-- END: Right Login Card Section -->
-<!-- Mobile Copyright Footer -->
-<div class="lg:hidden w-full text-center mt-12 mb-4">
-  <p class="text-[10px] text-slate-300 uppercase tracking-[0.1em]">
-    © 2026 PetroVietnam Oil Corporation.
-  </p>
-</div>
-</main>
-<!-- END: Main Content Layout -->
-</body>
+
+      <main class="login-card" role="main" aria-label="Đăng nhập">
+        <header class="login-card-header">
+          <h2>Đăng nhập</h2>
+          <p>Nhập email và mật khẩu để đăng nhập!</p>
+        </header>
+
+        <form class="login-form" novalidate ng-submit="vm.submit()">
+          <div class="form-field">
+            <label for="username">Tên đăng nhập</label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <img src="assets/Icon-2.svg" alt="" />
+              </span>
+              <input
+                id="username"
+                name="username"
+                type="email"
+                placeholder="phuongdt1@pvoil.com.vn"
+                ng-model="vm.credentials.username"
+                autocomplete="username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="password">Mật khẩu</label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <img src="assets/Icon-1.svg" alt="" />
+              </span>
+              <input
+                id="password"
+                name="password"
+                ng-attr-type="{{ vm.showPassword ? 'text' : 'password' }}"
+                placeholder="••••••••"
+                ng-model="vm.credentials.password"
+                autocomplete="current-password"
+                required
+              />
+              <button
+                type="button"
+                class="input-trailing-icon"
+                ng-click="vm.togglePassword()"
+                aria-label="{{ vm.showPassword ? 'Ẩn mật khẩu' : 'Hiển thị mật khẩu' }}"
+              >
+                <img src="assets/Icon-3.svg" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <div class="form-meta">
+            <label class="checkbox">
+              <input
+                type="checkbox"
+                ng-model="vm.remember"
+              />
+              <span>Ghi nhớ đăng nhập</span>
+            </label>
+            <a href="" class="link-muted">Quên mật khẩu?</a>
+          </div>
+
+          <button type="submit" class="btn-primary">
+            Đăng nhập
+          </button>
+
+          <div class="divider">
+            <span>Hoặc đăng nhập bằng</span>
+          </div>
+
+          <button type="button" class="btn-ghost">
+            <img
+              src="assets/Icon.svg"
+              alt=""
+              class="btn-qr-icon"
+            />
+            <span>Đăng nhập bằng mã QR</span>
+          </button>
+        </form>
+
+        <footer class="login-footer">
+          <p>© 2026 bản quyền thuộc PVOIL</p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
+
