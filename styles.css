@@ -20,7 +20,7 @@ body {
   /* Scale nicely on any screen size. */
   background-size: cover;
   /* Shift so the sun sits behind the hero logo card (higher and slightly left). */
-  background-position: 14% 32%;
+  background-position: 8% 5%;
   background-repeat: no-repeat;
   position: relative;
 }
