@@ -410,6 +410,19 @@ body {
     width: 100%;
     padding: 24px 20px 24px;
   }
+
+  /* Xử lý reponsive về mobile chỉ hiển thị logo và form đăng nhập */
+  .login-hero{
+    margin-bottom: 16px;
+  }
+  .hero-logo-card{
+    margin: 0 !important;
+  }
+  .hero-heading,
+  .hero-description,
+  .hero-actions{
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {
