@@ -52,6 +52,7 @@ body {
   flex: 0 0 760px;
   max-width: 760px;
   min-width: 0;
+  margin-top: -48px; /* lift logo, text, and chips a bit more so this whole block aligns with the sun highlight */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,7 +87,7 @@ body {
   font-size: 56px;
   line-height: 1.15;
   font-weight: 900;
-  margin: 0 0 24px;
+  margin: 0 0 50px;
   color: #f9fafb;
 }
 
@@ -98,10 +99,10 @@ body {
 
 .hero-description {
   max-width: 520px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
   color: #e5e7eb;
-  margin: 0 0 32px;
+  margin: 0 0 80px;
 }
 
 .hero-actions {
@@ -116,8 +117,14 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(15, 23, 42, 0.55); /* darker to match design pills */
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  /* Warm golden glass pill that picks up the water highlight underneath */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(180, 116, 52, 0.55) 55%,
+    rgba(120, 70, 30, 0.75) 100%
+  );
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #f9fafb;
@@ -128,13 +135,23 @@ body {
 }
 
 .chip-primary {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(229, 231, 235, 0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(209, 146, 72, 0.7) 55%,
+    rgba(146, 88, 41, 0.85) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .chip-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(229, 231, 235, 0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(190, 131, 64, 0.65) 55%,
+    rgba(128, 76, 35, 0.8) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .chip-icon {
@@ -318,7 +335,7 @@ body {
 .btn-primary {
   margin-top: 4px;
   border-radius: 12px;
-  border:1px solid rgba(229, 231, 235, 0.6); /* light border */
+  border: none;
   padding: 14px 18px;
   background: #2e5bff;
   color: #ffffff;
@@ -329,7 +346,7 @@ body {
 }
 
 .btn-primary:hover {
-  border-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 15px rgba(148, 163, 184, 0.7);
 }
 
