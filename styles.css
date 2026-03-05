@@ -40,8 +40,8 @@ body {
   /* Desktop: match Figma frame width and horizontal spacing */
   max-width: 1660px;
   margin: 0 auto;
-  column-gap: 140px;
-  padding: 80px 80px;
+  column-gap: 100px;
+  padding: 80px 130px;
   width: 100%;
   position: relative;
   box-sizing: border-box;
