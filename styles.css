@@ -15,13 +15,19 @@ body {
 }
 
 body {
-  /* Use the high-quality offshore background image. */
-  background-image: url('assets/background-offshore.jpg?v=2');
-  /* Scale to fill viewport, no gaps. */
-  background-size: cover;
-  /* Position sun (left of image) behind PVOIL logo: higher vertical = sun behind upper-left logo. */
-  background-position: 22% 38%;
-  background-repeat: no-repeat;
+  /* Background: photo + dark blue gradient in a single layer so there is no visible seam. */
+  background-image:
+    linear-gradient(
+      144.9deg,
+      rgba(10, 25, 60, 0) 0%,
+      rgba(10, 25, 60, 1) 100%
+    ),
+    url('assets/background_oil_rig_offshore.png');
+  /* Keep both layers covering the full viewport; avoid any empty margins. */
+  background-size: cover, cover;
+  /* Position so the bright sun is roughly behind the logo card. */
+  background-position: 24% 30%, center;  /* move sun slightly up */
+  background-repeat: no-repeat, no-repeat;
   background-attachment: fixed;
   position: relative;
 }
@@ -31,33 +37,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* Cap gap and padding on large (e.g. 24") screens so layout stays balanced */
-  gap: min(10vw, 160px);
-  padding: 5vh min(8vw, 120px);
+  /* Desktop: match Figma frame width and horizontal spacing */
+  max-width: 1660px;
+  margin: 0 auto;
+  column-gap: 140px;
+  padding: 40px 40px;
   width: 100%;
   position: relative;
   box-sizing: border-box;
 }
 
-.login-page::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  /* Match Figma: #0A193C from 0% opacity to 100% across the frame. */
-  background: linear-gradient(
-    141deg,
-    rgba(10, 25, 60, 0) 0%,
-    rgba(10, 25, 60, 1) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
 .login-hero {
-  flex: 1 1 0;
+  /* Approximate Figma left content width (logo + heading + text) */
+  flex: 0 0 760px;
+  max-width: 760px;
   min-width: 0;
-  /* Left section ~55–60% on smaller screens; cap width on 24" so content doesn't over-stretch */
-  max-width: min(58%, 680px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,10 +143,9 @@ body {
 }
 
 .login-card {
-  flex: 0 0 460px;
-  max-width: min(480px, 42vw); /* form ~40–45% width per design */
+  flex: 0 0 480px;
+  max-width: 480px;
   align-self: center;
-  margin-left: auto; /* keep form on the right; prevents layout shifting left */
   padding: 48px; /* generous internal padding per design */
   border-radius: 24px;
   /* Match Figma rectangle: white at 20% opacity with drop shadow. */
@@ -399,11 +392,6 @@ body {
 }
 
 @media (max-width: 960px) {
-  /* Sun behind logo when layout stacks and logo is near top */
-  body {
-    background-position: 22% 24%;
-  }
-
   .login-page {
     flex-direction: column;
     align-items: stretch;
@@ -437,10 +425,6 @@ body {
 }
 
 @media (max-width: 640px) {
-  body {
-    background-position: 22% 20%;
-  }
-
   .hero-logo-card {
     margin-bottom: 32px;
   }
@@ -470,10 +454,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  body {
-    background-position: 22% 18%;
-  }
-
   .login-page {
     padding: 16px 12px 24px;
   }
