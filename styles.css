@@ -75,6 +75,24 @@ body {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   margin-bottom: 6vh; /* 6–8% vertical spacing to heading per design */
+  position: relative;
+  overflow: visible;
+}
+
+.hero-logo-card::before {
+  content: '';
+  position: absolute;
+  inset: -30px -60px -26px -60px; /* wider than the card for a soft halo */
+  border-radius: 9999px;
+  /* Soft glow similar to the Figma example: bright center, fading to transparent */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.26) 0%,
+    rgba(255, 255, 255, 0.12) 35%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(22px);
+  z-index: -1;
 }
 
 .hero-logo {
