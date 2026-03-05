@@ -17,22 +17,26 @@ body {
 body {
   /* Use the high-quality offshore background image. */
   background-image: url('assets/background-offshore.jpg?v=2');
-  /* Scale nicely on any screen size. */
+  /* Scale to fill viewport, no gaps. */
   background-size: cover;
-  /* Shift so the sun sits behind the hero logo card (higher and slightly left). */
-  background-position: 8% 5%;
+  /* Position sun (left of image) behind PVOIL logo: higher vertical = sun behind upper-left logo. */
+  background-position: 22% 38%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   position: relative;
 }
 
 .login-page {
   min-height: 100vh;
   display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  padding: 40px 56px;
+  align-items: center;
+  justify-content: flex-start;
+  /* Cap gap and padding on large (e.g. 24") screens so layout stays balanced */
+  gap: min(10vw, 160px);
+  padding: 5vh min(8vw, 120px);
   width: 100%;
   position: relative;
+  box-sizing: border-box;
 }
 
 .login-page::before {
@@ -51,8 +55,9 @@ body {
 
 .login-hero {
   flex: 1 1 0;
-  max-width: 640px;
-  padding-right: 72px;
+  min-width: 0;
+  /* Left section ~55–60% on smaller screens; cap width on 24" so content doesn't over-stretch */
+  max-width: min(58%, 680px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,7 +79,7 @@ body {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  margin-bottom: 56px;
+  margin-bottom: 6vh; /* 6–8% vertical spacing to heading per design */
 }
 
 .hero-logo {
@@ -145,9 +150,10 @@ body {
 
 .login-card {
   flex: 0 0 460px;
-  max-width: 480px;
+  max-width: min(480px, 42vw); /* form ~40–45% width per design */
   align-self: center;
-  padding: 40px;
+  margin-left: auto; /* keep form on the right; prevents layout shifting left */
+  padding: 48px; /* generous internal padding per design */
   border-radius: 24px;
   /* Match Figma rectangle: white at 20% opacity with drop shadow. */
   background: rgba(255, 255, 255, 0.2);
@@ -393,20 +399,26 @@ body {
 }
 
 @media (max-width: 960px) {
+  /* Sun behind logo when layout stacks and logo is near top */
+  body {
+    background-position: 22% 24%;
+  }
+
   .login-page {
     flex-direction: column;
     align-items: stretch;
+    gap: 24px;
     padding: 24px 16px 32px;
   }
 
   .login-hero {
     max-width: none;
-    padding-right: 0;
-    margin-bottom: 32px;
+    margin-bottom: 0;
   }
 
   .login-card {
     width: 100%;
+    max-width: none;
     padding: 24px 20px 24px;
   }
 
@@ -425,6 +437,10 @@ body {
 }
 
 @media (max-width: 640px) {
+  body {
+    background-position: 22% 20%;
+  }
+
   .hero-logo-card {
     margin-bottom: 32px;
   }
@@ -454,6 +470,10 @@ body {
 }
 
 @media (max-width: 480px) {
+  body {
+    background-position: 22% 18%;
+  }
+
   .login-page {
     padding: 16px 12px 24px;
   }
