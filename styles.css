@@ -52,7 +52,7 @@ body {
   flex: 0 0 760px;
   max-width: 760px;
   min-width: 0;
-  margin-top: -48px; /* lift logo, text, and chips a bit more so this whole block aligns with the sun highlight */
+  margin-top: -20px; /* lift logo, text, and chips a bit more so this whole block aligns with the sun highlight */
   display: flex;
   flex-direction: column;
   justify-content: center;
